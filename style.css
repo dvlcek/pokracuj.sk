@@ -1,0 +1,223 @@
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  background-color: black;
+}
+
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 80%; /* Adjust width to fit the section (you can change the percentage) */
+  max-width: 800px; /* Optional: Set a maximum width to prevent it from being too large */
+  height: auto; /* Ensure aspect ratio is preserved */
+}
+
+#scroll-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.section {
+  flex: none;
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  color: white;
+  background-color: #1B401E;
+}
+.section:nth-child(1) {
+  font-size: 3.5rem;
+}
+.section:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section:nth-child(4) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ /* Different background for clarity */
+}
+.grid-container {
+  display: grid;
+  gap: 0 10px;
+  width: 90%;
+  max-width: 800px;
+}
+/* Styles for the first grid container */
+.section:nth-of-type(2) .grid-container {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, auto);  
+}
+
+/* Styles for the second grid container */
+.section:nth-of-type(4) .grid-container {
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(10, auto); /* 10 rows */
+
+}
+
+
+.grid-item {
+  padding: 0 20px;
+}
+.grid-item:nth-child(odd) {
+  text-align: left;
+}
+
+.grid-item:nth-child(even) {
+  text-align: right;
+}
+.membership-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 60px 20px;
+}
+
+.membership-card {
+  padding: 40px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.membership-card h2 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
+}
+
+.membership-card .cost {
+  color: rgb(255, 255, 255);
+  margin-left: 15px;
+}
+
+.note {
+  font-size: 1.3rem;
+  color: rgb(204, 204, 204);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.benefits li {
+  /* margin-bottom: 12px; */
+  padding-left: 25px;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+.benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0px;
+  color: rgb(255, 255, 255);
+}
+
+.fineprint {
+  font-size: 1.2rem;
+  color: rgb(153, 153, 153);
+  margin-top: 20px;
+  font-style: italic;
+  text-align: center;
+}
+
+.dots {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 26px;
+  z-index: 1001;
+}
+
+.dot {
+  width: 170px;
+  height: 5px;
+  border-radius: 5px;
+  background: #0b210d;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: white;
+}
+
+/* Footer Styles */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding: 10px 0;
+  z-index: 1002;
+}
+.footer-logo{
+  width: 150px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.social-icon, .phone-number, .email {
+  font-size: 1.3rem;
+  color: white;
+}
+
+.social-icon {
+  text-decoration: none;
+  color: white;
+}
+
+.social-icon:hover, .email:hover {
+  color: #ddd;
+}
