@@ -162,6 +162,13 @@ body {
   font-style: italic;
   text-align: center;
 }
+.additional-info {
+  font-size: 1.1rem;
+  color: #ccc;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.5;
+}
 
 .dots {
   position: fixed;
@@ -209,7 +216,7 @@ footer {
 }
 
 .social-icon, .phone-number, .email {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: white;
 }
 
