@@ -276,11 +276,9 @@ footer {
     font-size: 1.5rem;
   }
   h2{
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
-  }
-  .note {
-    font-size: 1.3rem;
+    padding: 0 15px;
   }
   .social-icon{
     font-size: 1rem;
@@ -320,7 +318,8 @@ footer {
     font-size: 1rem;
   }
   .note {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 0 15px;
   }
   .footer-text{
     font-size: 0.8rem;
