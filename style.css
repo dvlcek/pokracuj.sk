@@ -168,6 +168,7 @@ h2{
   list-style: none;
   padding: 0px;
   margin: 0px;
+  margin-bottom: 15px;
 }
 
 .benefits li {
@@ -187,7 +188,6 @@ h2{
 .fineprint {
   font-size: 1.5rem;
   color: rgb(153, 153, 153);
-  margin-top: 20px;
   font-style: italic;
   text-align: center;
 }
@@ -195,7 +195,7 @@ h2{
   font-size: 1.4rem;
   color: #ccc;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 15px;
   line-height: 1.5;
 }
 
@@ -247,6 +247,7 @@ footer {
 .social-icon, .phone-number, .email {
   font-size: 1.5rem;
   color: white;
+  text-decoration: none;
 }
 
 .social-icon {
@@ -256,6 +257,7 @@ footer {
 
 .social-icon:hover, .email:hover {
   color: #ddd;
+  text-decoration: underline;
 }
 .footer-text{
   font-size: 1rem;
@@ -296,7 +298,7 @@ footer {
     font-size: 1.5rem;
   }
   .grid-item{
-    padding: 0 9px;
+    padding: 0 8px;
   }
   .membership-card {
     padding: 15px;
