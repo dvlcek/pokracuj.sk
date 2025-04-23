@@ -257,3 +257,70 @@ footer {
 .social-icon:hover, .email:hover {
   color: #ddd;
 }
+.footer-text{
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 70px;
+  }
+  .top-nav {
+    gap: 20px;
+  }
+  .nav-link {
+    font-size: 1.5rem;
+  }
+  h2{
+    font-size: 3rem;
+    text-align: center;
+  }
+  .note {
+    font-size: 1.3rem;
+  }
+  .social-icon{
+    font-size: 1rem;
+  }
+  .email{
+    font-size: 1rem;
+  }
+  .footer-logo{
+    width: 100px;
+  }
+  .footer-container {
+    padding: 0 25px;
+  }
+  .section{
+    font-size: 1.5rem;
+  }
+  .grid-item{
+    padding: 0 9px;
+  }
+  .membership-card {
+    padding: 15px;
+    max-width: 90%;
+  }
+  .membership-section{
+    padding-top: 50px;
+  }
+  .membership-card h2 {
+    font-size: 2.5rem;
+  }
+  .benefits li {
+    font-size: 1.2rem;
+  }
+  .fineprint {
+    font-size: 1rem;
+  }
+  .additional-info {
+    font-size: 1rem;
+  }
+  .note {
+    font-size: 1.2rem;
+  }
+  .footer-text{
+    font-size: 0.8rem;
+  }
+}
