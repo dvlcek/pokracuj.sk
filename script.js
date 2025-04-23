@@ -1,28 +1,37 @@
 const container = document.getElementById('scroll-container');
 const sections = container.querySelectorAll('.section');
-const dotsContainer = document.getElementById('dots');
+const nav = document.getElementById('nav');
 
-// Create dots
-sections.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-    container.scrollTo({ left: index * window.innerWidth, behavior: 'smooth' });
-    });
-    dotsContainer.appendChild(dot);
-});
+const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie'];
 
-// Update dot on scroll
-container.addEventListener('scroll', () => {
-    const index = Math.round(container.scrollLeft / window.innerWidth);
-    document.querySelectorAll('.dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
-    });
-});
+// Create nav links
+sections.forEach((section, index) => {
+  const link = document.createElement('a');
+  link.textContent = sectionNames[index];
+  link.href = "#";
+  link.classList.add('nav-link');
+  if (index === 0) link.classList.add('active');
 
-// Convert vertical scroll to horizontal
-window.addEventListener('wheel', (e) => {
+  link.addEventListener('click', (e) => {
     e.preventDefault();
-    container.scrollBy({ left: e.deltaY, behavior: 'smooth' });
+    container.scrollTo({ left: index * window.innerWidth, behavior: 'smooth' });
+  });
+
+  nav.appendChild(link);
+});
+
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Update nav based on scroll position
+container.addEventListener('scroll', () => {
+  const index = Math.round(container.scrollLeft / window.innerWidth);
+  navLinks.forEach((link, i) => {
+    link.classList.toggle('active', i === index);
+  });
+});
+
+// Optional: convert vertical wheel scroll to horizontal
+window.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  container.scrollBy({ left: e.deltaY, behavior: 'smooth' });
 }, { passive: false });
