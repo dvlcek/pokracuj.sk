@@ -51,6 +51,19 @@ overlay.addEventListener('click', () => {
   overlay.classList.remove('show');
   setTimeout(() => {
     overlayImg.src = '';
-  }, 300);
+  }, 600);
 });
+overlayImg.onload = () => {
+  document.getElementById('spinner').style.display = 'none';
+};
+
+galleryImages.forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('spinner').style.display = 'block';
+    overlayImg.src = img.src;
+    overlay.classList.add('show');
+    document.body.classList.add('overlay-open');
+  });
+});
+
 
