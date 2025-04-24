@@ -1,6 +1,10 @@
 const container = document.getElementById('scroll-container');
 const sections = container.querySelectorAll('.section');
 const nav = document.getElementById('nav');
+const galleryImages = document.querySelectorAll('.gallery img');
+const overlay = document.getElementById('overlay');
+const overlayImg = document.getElementById('overlay-img');
+
 
 const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie', 'Galéria'];
 
@@ -35,3 +39,18 @@ window.addEventListener('wheel', (e) => {
   e.preventDefault();
   container.scrollBy({ left: e.deltaY, behavior: 'smooth' });
 }, { passive: false });
+
+galleryImages.forEach(img => {
+  img.addEventListener('click', () => {
+    overlayImg.src = img.src;
+    overlay.classList.add('show');
+  });
+});
+
+overlay.addEventListener('click', () => {
+  overlay.classList.remove('show');
+  setTimeout(() => {
+    overlayImg.src = '';
+  }, 300);
+});
+

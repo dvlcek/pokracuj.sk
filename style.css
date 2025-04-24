@@ -4,6 +4,12 @@
   font-weight: 400;
   font-style: normal;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
 
 * {
   margin: 0;
@@ -36,7 +42,6 @@ h2{
 .logo {
   height: 200px;
   margin-bottom: 20px;
-
 }
 .top-nav {
   display: flex;
@@ -206,6 +211,35 @@ h2{
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999; /* put it above EVERYTHING */
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 .dots {
