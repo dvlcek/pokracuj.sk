@@ -2,7 +2,7 @@ const container = document.getElementById('scroll-container');
 const sections = container.querySelectorAll('.section');
 const nav = document.getElementById('nav');
 
-const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie'];
+const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie', 'Galéria'];
 
 // Create nav links
 sections.forEach((section, index) => {
