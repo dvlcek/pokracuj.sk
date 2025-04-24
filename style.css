@@ -200,14 +200,14 @@ h2{
 }
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   padding: 0 50px;
 }
 
 .gallery img {
   width: 100%;
-  width: 320px;
+  width: 450px;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -374,6 +374,7 @@ footer {
   .gallery{
     grid-template-columns: repeat(3, 1fr);
     padding: 0 15px;
+    gap: 10px;
   }
   .gallery img{
     width: 115px;
@@ -387,6 +388,11 @@ footer {
   }
   .footer-text{
     font-size: 0.7rem;
+  }
+}
+@media (max-width: 2000px) {
+  .gallery{
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-height: 670px) {
