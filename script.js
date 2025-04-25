@@ -4,7 +4,7 @@ const nav = document.getElementById('nav');
 const galleryImages = document.querySelectorAll('.gallery img');
 const overlay = document.getElementById('overlay');
 const overlayImg = document.getElementById('overlay-img');
-
+const spinner = document.getElementById('spinner');
 
 const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie', 'Galéria', 'Kontakt'];
 
@@ -42,29 +42,25 @@ window.addEventListener('wheel', (e) => {
 
 galleryImages.forEach(img => {
   img.addEventListener('click', () => {
-    overlayImg.src = img.src;
-    overlay.classList.add('show');
-  });
-});
-
-overlay.addEventListener('click', () => {
-  overlay.classList.remove('show');
-  setTimeout(() => {
-    overlayImg.src = '';
-  }, 300);
-});
-overlayImg.onload = () => {
-  document.getElementById('spinner').style.display = 'none';
-};
-
-galleryImages.forEach(img => {
-  img.addEventListener('click', () => {
-    document.getElementById('spinner').style.display = 'block';
+    document.getElementById('spinner').style.display = 'block'; // Show spinner while image loads
     overlayImg.src = img.src;
     overlay.classList.add('show');
     document.body.classList.add('overlay-open');
   });
 });
+
+overlay.addEventListener('click', () => {
+  overlay.classList.remove('show');
+  document.body.classList.remove('overlay-open');
+  setTimeout(() => {
+    overlayImg.src = ''; // Clear the image after closing overlay
+  }, 300);
+});
+
+overlayImg.onload = () => {
+  spinner.style.display = 'none'; // Hide spinner when the image finishes loading
+};
+
 document.querySelector('.button').addEventListener('click', function(e) {
   e.preventDefault(); // Prevent default action
   const target = document.getElementById('kontakt');
@@ -75,29 +71,38 @@ document.querySelector('.button').addEventListener('click', function(e) {
     block: 'start'
   });
 });
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();  // Prevent the form from submitting normally
+  sendMail(); // Call sendMail function
+});
+
 function sendMail() {
+  // Get form data
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value;
   const message = document.getElementById('text').value;
 
+  // Create params object for emailjs
   let params = {
     name: name,
     email: email,
     phone: phone,
     message: message
   };
-  emailjs.send('service_10d0kqj', 'template_n76glgh', templateParams).then(
-    alert('Rezervácia bola úspešne odoslaná!'),
-    (response) => {
-      console.log('SUCCESS!', response.status, response.text);
-    },
-    (error) => {
-      console.log('FAILED...', error);
-    },
-  );
 
-  
+  // Show an alert with the form data (params)
+  alert(`Form Data: \nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`);
+
+  // Send data via emailjs
+  emailjs.send('service_10d0kqj', 'template_n76glgh', params)
+    .then((response) => {
+      alert('Rezervácia bola úspešne odoslaná!'); // Success message
+      console.log('Success:', response);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Niečo sa pokazilo. Skúste to znova.'); // Error message
+    });
 }
-
-
