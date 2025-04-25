@@ -6,7 +6,7 @@ const overlay = document.getElementById('overlay');
 const overlayImg = document.getElementById('overlay-img');
 
 
-const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie', 'Galéria'];
+const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie', 'Galéria', 'Kontakt'];
 
 // Create nav links
 sections.forEach((section, index) => {
@@ -51,7 +51,7 @@ overlay.addEventListener('click', () => {
   overlay.classList.remove('show');
   setTimeout(() => {
     overlayImg.src = '';
-  }, 600);
+  }, 300);
 });
 overlayImg.onload = () => {
   document.getElementById('spinner').style.display = 'none';

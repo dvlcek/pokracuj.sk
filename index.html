@@ -27,8 +27,11 @@
   <div id="scroll-container">
     <section class="section">
       <div class="intro">
-        <h2>Pretože, nech sa deje čokoľvek, pokračuj.</h2>
+        <h2>Nech sa deje čokoľvek, pokračuj.</h2>
         <p class="note">Profesionálne nahravacie studio v Bratislave - rezervuj si svoj termín ešte dnes</p>
+        <a href="mailto:pokracujsk@gmail.com?subject=Rezervácia%20štúdia&body=Dobrý%20deň,%0D%0Amám%20záujem%20o%20rezerváciu." class="button">
+          Rezervovať
+        </a>
       </div>
     </section>
     <section class="section">
@@ -105,12 +108,12 @@
       <section class="section gallery-section">
         <h2>Galéria</h2>
         <div class="gallery">
+          <img src="foto/image00006.jpg" alt="Gallery image 6">
           <img src="foto/image00001.jpg" alt="Gallery image 1">
           <img src="foto/image00002.jpg" alt="Gallery image 2">
           <img src="foto/image00003.jpg" alt="Gallery image 3">
           <img src="foto/image00004.jpg" alt="Gallery image 4">
           <img src="foto/image00005.jpg" alt="Gallery image 5">
-          <img src="foto/image00006.jpg" alt="Gallery image 6">
           <img src="foto/image00007.jpg" alt="Gallery image 7">
           <img src="foto/image00008.jpg" alt="Gallery image 8">
           <img src="foto/image00009.jpg" alt="Gallery image 9">
@@ -120,6 +123,29 @@
           <img id="overlay-img" src="" alt="Fullscreen preview">
         </div>
       
+      </section>
+      <section class="section kontak">
+        <h2>Kontakt</h2>
+        <div class="contact-flex">
+          <form class="contact-form">
+            <input type="text" name="name" placeholder="Meno" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Správa" required></textarea>
+            <button type="submit">Odoslať</button>
+          </form>
+          <div class="map-container">
+            <iframe 
+              class="map-iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0998317618796!2d17.166596177628893!3d48.18542797124887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8f4cf8b10157%3A0x37bc8a9c5c182d9!2zUG9rcmHEjXVqIHMuci5vLiAtIG5haHLDoXZhY2llIGEgcHJvZHVrxI1uw6kgxaF0w7pkaW8!5e0!3m2!1ssk!2ssk!4v1745492688696!5m2!1ssk!2ssk" 
+              width="100%" 
+              height="350" 
+              style="border:0; border-radius: 10px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
       </section>
   </div>
   <div class="dots" id="dots"></div>
@@ -134,7 +160,7 @@
     </div>
     <p class="footer-text">© 2025 POKRACUJ.SK. Všetky práva vyhradené.</p>
   </footer>
-  
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
