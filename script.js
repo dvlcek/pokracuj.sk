@@ -92,9 +92,6 @@ function sendMail() {
     message: message
   };
 
-  // Show an alert with the form data (params)
-  alert(`Form Data: \nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`);
-
   // Send data via emailjs
   emailjs.send('service_10d0kqj', 'template_n76glgh', params)
     .then((response) => {
