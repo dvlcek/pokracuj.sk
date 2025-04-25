@@ -462,7 +462,7 @@ footer {
     padding: 8px 16px;
   }
   .map-iframe{
-    height: 200px;
+    height: 320px;
   }
   .note {
     font-size: 1rem;
@@ -497,5 +497,11 @@ footer {
   }
   .gallery img{
     width: 110px;
+  }
+  .section.kontak h2{
+    margin-bottom: 10px;
+  }
+  .map-iframe{
+    height: 150px;
   }
 }
