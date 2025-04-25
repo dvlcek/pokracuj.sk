@@ -75,5 +75,29 @@ document.querySelector('.button').addEventListener('click', function(e) {
     block: 'start'
   });
 });
+function sendMail() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const message = document.getElementById('text').value;
+
+  let params = {
+    name: name,
+    email: email,
+    phone: phone,
+    message: message
+  };
+  emailjs.send('service_10d0kqj', 'template_n76glgh', templateParams).then(
+    alert('Rezervácia bola úspešne odoslaná!'),
+    (response) => {
+      console.log('SUCCESS!', response.status, response.text);
+    },
+    (error) => {
+      console.log('FAILED...', error);
+    },
+  );
+
+  
+}
 
 
