@@ -284,6 +284,9 @@ h2{
   font-family: inherit;
   resize: vertical;
 }
+.contact-form textarea {
+  flex-grow: 1;
+}
 
 .contact-form button {
   padding: 12px;
