@@ -380,24 +380,28 @@ footer {
     height: 70px;
   }
   .top-nav {
-    gap: 15px;
+    gap: 13px;
   }
   .nav-link {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   h2{
     font-size: 2rem;
     text-align: center;
     padding: 0 15px;
   }
-  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5){
+  .section:nth-child(2){
     justify-content: flex-start;
-    padding-top: 230px;
+    padding-top: 230PX;
+  }
+  .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6) {
+    justify-content: flex-start;
+    padding-top: 170px;
     ;
   }
-  .section:nth-child(6) {
-    padding-top: 150px;
-    ;
+  .button{
+    font-size: 2.5rem;
+    padding: 8px 16px;
   }
   .contact-flex{
     width: 70vw;
@@ -444,7 +448,7 @@ footer {
     gap: 10px;
   }
   .gallery img{
-    width: 115px;
+    width: 115px !important;
   }
   .contact-form input{
     font-size: 0.8rem;
@@ -455,7 +459,7 @@ footer {
     padding: 8px 16px;
   }
   .map-iframe{
-    height: 100px;
+    height: 200px;
   }
   .note {
     font-size: 1rem;

@@ -65,5 +65,15 @@ galleryImages.forEach(img => {
     document.body.classList.add('overlay-open');
   });
 });
+document.querySelector('.button').addEventListener('click', function(e) {
+  e.preventDefault(); // Prevent default action
+  const target = document.getElementById('kontakt');
+  
+  // Smooth scroll to the 'kontakt' section
+  target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+});
 
 
