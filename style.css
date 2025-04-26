@@ -389,15 +389,12 @@ footer {
     font-size: 1.2rem;
   }
   h2{
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     padding: 0 15px;
   }
-  .section:nth-child(2){
-    justify-content: flex-start;
-    padding-top: 230PX;
-  }
-  .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6) {
+
+  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6) {
     justify-content: flex-start;
     padding-top: 170px;
     ;
@@ -462,7 +459,7 @@ footer {
     padding: 8px 16px;
   }
   .map-iframe{
-    height: 320px;
+    height: 270px;
   }
   .note {
     font-size: 1rem;
@@ -489,7 +486,7 @@ footer {
 @media (max-height: 670px) {
   .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6) {
     justify-content: flex-start;
-    padding-top: 160px;
+    padding-top: 140px;
     ;
   }
   .gallery{
