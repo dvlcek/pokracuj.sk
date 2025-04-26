@@ -48,6 +48,19 @@ galleryImages.forEach(img => {
     document.body.classList.add('overlay-open');
   });
 });
+document.addEventListener('keydown', (e) => {
+  const sectionWidth = window.innerWidth;
+  const maxIndex = sections.length - 1;
+  const currentIndex = Math.round(container.scrollLeft / sectionWidth);
+
+  if (e.key === 'ArrowRight' && currentIndex < maxIndex) {
+    container.scrollTo({ left: (currentIndex + 1) * sectionWidth, behavior: 'smooth' });
+  }
+
+  if (e.key === 'ArrowLeft' && currentIndex > 0) {
+    container.scrollTo({ left: (currentIndex - 1) * sectionWidth, behavior: 'smooth' });
+  }
+});
 
 overlay.addEventListener('click', () => {
   overlay.classList.remove('show');

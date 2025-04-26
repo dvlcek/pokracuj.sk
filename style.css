@@ -511,6 +511,7 @@ footer {
   }
   h2{
     font-size: 3.4rem;
+    margin-bottom: 20px;
   }
   .membership-card h2{
     font-size: 3.4rem;
@@ -520,6 +521,9 @@ footer {
     justify-content: flex-start;
     padding-top: 200px;
   }
+  .section:nth-child(1) h2{
+    font-size: 5rem;
+  }
   .gallery img{
     width: 240px;
   }
@@ -528,6 +532,7 @@ footer {
   }
   .note{
     font-size: 1.5rem;
+    margin-bottom: 15px;
   }
   .fineprint{
     font-size: 1.3rem;
