@@ -480,7 +480,7 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
   .contact-flex{
-    width: 90vw;
+    width: 70vw;
   }
   .gallery img{
     width: 300px;
@@ -503,5 +503,36 @@ footer {
   }
   .map-iframe{
     height: 150px;
+  }
+}
+@media (max-height: 1000px){
+  .logo{
+    height: 100px;
+  }
+  h2{
+    font-size: 3.4rem;
+  }
+  .membership-card h2{
+    font-size: 3.4rem;
+  }
+
+  .section{
+    justify-content: flex-start;
+    padding-top: 200px;
+  }
+  .gallery img{
+    width: 240px;
+  }
+  .benefits li{
+    font-size: 1.7rem;
+  }
+  .note{
+    font-size: 1.5rem;
+  }
+  .fineprint{
+    font-size: 1.3rem;
+  }
+  .additional-info{
+    font-size: 1.3rem;
   }
 }
