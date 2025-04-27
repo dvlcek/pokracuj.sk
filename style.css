@@ -147,10 +147,9 @@ h2{
 }
 .membership-section {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   color: white;
-  padding-top: 114px;
 }
 
 .membership-card {
@@ -538,4 +537,35 @@ footer {
   .additional-info{
     font-size: 1.2rem;
   }
+}
+@media (min-height: 1001px) and (max-height: 1200px) {
+  /* Your custom styles for laptops/PCs with height between 1000px and 1300px */
+.section:nth-child(1) h2{
+    font-size: 6rem;
+  }
+  .logo {
+    height: 150px;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+  .section {
+    padding-top: 250px;
+  }
+  .membership-card h2 {
+    font-size: 4rem;
+  }
+  .gallery img {
+    width: 230px;
+  }
+  .benefits li {
+    font-size: 1.7rem;
+  }
+  .note{
+    font-size: 1.3rem;
+  }
+  .fineprint{
+    font-size: 1.1rem;
+  }
+  /* Add any more adjustments you want for that height range here */
 }
