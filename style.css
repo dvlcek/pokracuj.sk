@@ -511,25 +511,26 @@ footer {
   }
   .membership-card h2{
     font-size: 3rem;
+    margin-bottom: 0px;
   }
 
   .section{
     justify-content: flex-start;
     padding-top: 200px;
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
   .section:nth-child(1) h2{
     font-size: 5rem;
   }
   .gallery img{
-    width: 220px;
+    width: 200px;
   }
   .benefits li{
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
   .note{
     font-size: 1.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   .fineprint{
     font-size: 1.2rem;
