@@ -72,8 +72,10 @@ overlay.addEventListener('click', () => {
 });
 
 overlayImg.onload = () => {
-  spinner.style.display = 'none'; // Hide spinner when the image finishes loading
+  spinner.style.display = 'none';
+  overlayImg.style.opacity = 1;
 };
+
 
 document.querySelector('.button').addEventListener('click', function(e) {
   e.preventDefault(); // Prevent default action
@@ -95,11 +97,15 @@ function showImage(index) {
   if (index >= galleryImages.length) index = 0;
   currentImgIndex = index;
 
+  // Fade out before changing the image
+  overlayImg.style.opacity = 0;
   spinner.style.display = 'block';
-  overlayImg.src = galleryImages[currentImgIndex].src;
-  overlay.classList.add('show');
-  document.body.classList.add('overlay-open');
+
+  setTimeout(() => {
+    overlayImg.src = galleryImages[currentImgIndex].src;
+  }, 200);
 }
+
 
 galleryImages.forEach((img, index) => {
   img.addEventListener('click', () => {

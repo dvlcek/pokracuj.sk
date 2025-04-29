@@ -252,6 +252,8 @@ h2{
 .overlay img {
   max-width: 90%;
   max-height: 90%;
+  transition: opacity 0.4s ease;
+  opacity: 1;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
@@ -497,6 +499,12 @@ footer {
   }
   .gallery img{
     width: 115px !important;
+  }
+  .overlay{
+    padding: 0 15px;
+  }
+  .overlay-btn{
+    font-size: 1.5rem;
   }
   .contact-form input{
     font-size: 0.8rem;
