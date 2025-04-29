@@ -5,6 +5,7 @@ const galleryImages = document.querySelectorAll('.gallery img');
 const overlay = document.getElementById('overlay');
 const overlayImg = document.getElementById('overlay-img');
 const spinner = document.getElementById('spinner');
+let currentImgIndex = 0;
 
 const sectionNames = ['Domov', 'Cenník', 'členstvo', 'Vybavenie', 'Galéria', 'Kontakt'];
 
@@ -88,6 +89,42 @@ document.querySelector('.button').addEventListener('click', function(e) {
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();  // Prevent the form from submitting normally
   sendMail(); // Call sendMail function
+});
+function showImage(index) {
+  if (index < 0) index = galleryImages.length - 1;
+  if (index >= galleryImages.length) index = 0;
+  currentImgIndex = index;
+
+  spinner.style.display = 'block';
+  overlayImg.src = galleryImages[currentImgIndex].src;
+  overlay.classList.add('show');
+  document.body.classList.add('overlay-open');
+}
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    showImage(index);
+  });
+});
+
+// Arrow navigation
+document.getElementById('prev-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  showImage(currentImgIndex - 1);
+});
+
+document.getElementById('next-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  showImage(currentImgIndex + 1);
+});
+
+// Close button
+document.getElementById('close-btn').addEventListener('click', () => {
+  overlay.classList.remove('show');
+  document.body.classList.remove('overlay-open');
+  setTimeout(() => {
+    overlayImg.src = '';
+  }, 300);
 });
 
 function sendMail() {

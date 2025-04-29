@@ -241,6 +241,7 @@ h2{
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 9999; /* put it above EVERYTHING */
+  padding: 0 50px;
 }
 
 .overlay.show {
@@ -254,6 +255,54 @@ h2{
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
+#overlay-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.overlay-btn {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+#prev-btn, #next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#prev-btn {
+  left: 20px;
+}
+
+#next-btn {
+  right: 20px;
+}
+#close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 .contact-flex {
   display: flex;
   flex-wrap: wrap;
