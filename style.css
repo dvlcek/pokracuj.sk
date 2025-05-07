@@ -5,12 +5,12 @@
   font-style: normal;
 }
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden; /* Fully disable scrolling */
+  overscroll-behavior: none;
+  touch-action: pan-x; /* Only allow horizontal swipes */
+  position: fixed; /* Prevent Safari scroll bounce */
 }
-
 * {
   margin: 0;
   padding: 0;
