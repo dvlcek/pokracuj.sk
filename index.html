@@ -141,12 +141,12 @@
         <h2>Kontakt</h2>
         <div class="contact-flex">
           <form class="contact-form" id="contact-form">
-            <input type="text" id="name" name="name" placeholder="Meno">
-            <input type="email" id="email" name="email" placeholder="Email">
-            <input type="text" id="phone" name="phone" placeholder="Tel. Číslo">
-            <textarea id="text" name="message" placeholder="Správa"></textarea>
-            <button type="submit">Odoslať</button>
-          </form>
+          <input type="text" id="name" name="name" placeholder="Meno" required>
+          <input type="email" id="email" name="email" placeholder="Email" required>
+          <input type="text" id="phone" name="phone" placeholder="Tel. Číslo" required>
+          <textarea id="text" name="message" placeholder="Správa" required></textarea>
+          <button type="submit">Odoslať</button>
+  </form>
           <div class="map-container">
             <iframe 
               class="map-iframe"
