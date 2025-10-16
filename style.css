@@ -1,3 +1,5 @@
+/* ====== Base & your existing styles (unchanged except small tweaks) ====== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
@@ -6,95 +8,84 @@
 }
 html, body {
   height: 100%;
-  overflow: hidden; /* Fully disable scrolling */
-  overscroll-behavior: none;
-  touch-action: pan-x; /* Only allow horizontal swipes */
-  position: fixed; /* Prevent Safari scroll bounce */
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
   overflow: hidden;
-  height: 100vh;
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  background-color: black;
+  overscroll-behavior: none;
+  touch-action: pan-x;
+  position: fixed;
 }
-h2{
-  font-size: 5rem;
-  margin-bottom: 30px;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { overflow: hidden; height: 100vh; font-family: "Bebas Neue", sans-serif; background-color: black; }
+h2{ font-size: 5rem; margin-bottom: 30px; }
+
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px 0;
 }
-.logo {
-  height: 200px;
-  margin-bottom: 20px;
+
+.top-bar {
+  position: relative;
+  width: 100%;
+  height: 100px; /* same as logo height */
 }
+
+.logo {
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* TRUE center of page */
+}
+
+.auth-quick {
+  position: absolute;
+  right: 210px;  /* stick to right side */
+  top: 50%;
+  transform: translateY(-50%); /* vertically centered */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .top-nav {
   display: flex;
   gap: 50px;
   justify-content: center;
+  margin-top: 15px;
 }
+
+.auth-status { color: #ddd; font-size: 1rem; }
 
 .nav-link {
-  font-size: 2rem;
-  color: #0c220e;
-  text-decoration: none;
-  padding-bottom: 4px;
-  transition: color 0.3s, border-bottom 0.3s;
-  border-bottom: 2px solid transparent;
+  font-size: 2rem; color: #0c220e; text-decoration: none; padding-bottom: 4px;
+  transition: color 0.3s, border-bottom 0.3s; border-bottom: 2px solid transparent;
 }
-
-.nav-link.active {
-  color: white;
-  border-bottom: 2px solid white;
-}
+.nav-link.active { color: white; border-bottom: 2px solid white; }
 
 #scroll-container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  display: flex; height: 100vh; width: 100vw; overflow-x: scroll; overflow-y: hidden;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none;
+}
+#scroll-container::-webkit-scrollbar { display: none; }
+
+.intro{ text-align: center; }
+
+.button{
+  display: inline-block; padding: 12px 24px; background-color: #1c5f20; color: white;
+  box-shadow: #0000007e 0px 2px 4px; text-decoration: none; border-radius: 8px; text-align: center; border: none; cursor: pointer;
+}
+.button:hover { background-color: #000000; box-shadow: #ffffff7e 0px 2px 4px; }
+.button.small { padding: 8px 10px; font-size: 1rem; }
+.button.outline { background: transparent; border: 1px solid #fff; }
+
+.button.disabled, .button:disabled {
+  background: #555 !important; box-shadow: none; cursor: not-allowed; opacity: 0.8;
 }
 
-#scroll-container::-webkit-scrollbar {
-  display: none;
-}
-.intro{
-  text-align: center;
-}
-.button{
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #1c5f20; /* Indigo */
-  box-shadow: #0000007e 0px 2px 4px;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  text-align: center;
-}
-.button:hover {
-  background-color: #000000; /* darker indigo */
-  box-shadow: #ffffff7e 0px 2px 4px;
-}
 .section {
   flex: none;
   width: 100vw;
@@ -107,565 +98,565 @@ h2{
   color: white;
   background-color: #1B401E;
   flex-direction: column;
-  padding-top: 302px;
+  padding-top: 210px;
 }
-.section:nth-child(1) {
-  font-size: 3.5rem;
-  padding-top: 0;
-  justify-content: center;
+.section:nth-child(1) { font-size: 3.5rem; padding-top: 0; justify-content: center; }
+
+/* grids etc. from your original... */
+.grid-container { display: grid; gap: 0 10px; width: 90%; max-width: 800px; }
+.section:nth-of-type(2) .grid-container { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(6, auto); }
+.section:nth-of-type(4) .grid-container { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(10, auto); }
+.grid-item { padding: 0 20px; }
+.grid-item:nth-child(odd) { text-align: left; }
+.grid-item:nth-child(even) { text-align: right; }
+
+/* membership */
+.membership-section{ display: flex; justify-content: flex-start; align-items: center; color: white; }
+.membership-card{ padding: 0 40px; max-width: 800px; width: 100%; }
+.membership-card h2{ font-size: 5rem; margin-bottom: 10px; text-align: center; color: white; }
+.membership-card .cost{ color: #fff; margin-left: 15px; }
+.note{ font-size: 1.2rem; color: #ccc; text-align: center; margin-bottom: 20px; }
+.benefits{ list-style: none; padding: 0; margin: 0 0 15px 0; }
+.benefits li{ padding-left: 30px; position: relative; font-size: 2rem; }
+.benefits li::before{ content: "✓"; position: absolute; left: 0; color: #fff; }
+.fineprint{ font-size: 1.2rem; color: #999; font-style: italic; text-align: center; }
+.additional-info{ font-size: 1.3rem; color: #ccc; text-align: center; margin-top: 15px; line-height: 1.5; }
+
+/* gallery */
+.gallery{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; padding: 0 50px; }
+.gallery img{ width: 100%; width: 450px; border-radius: 10px; object-fit: cover; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+.overlay{ position: fixed; inset: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95);
+  display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 9999; padding: 0 50px; }
+.overlay.show{ opacity: 1; pointer-events: auto; }
+.overlay img{ max-width: 90%; max-height: 90%; transition: opacity .4s; opacity: 1; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+.overlay-btn{ background: rgba(0,0,0,.6); color: white; border: none; font-size: 2rem; padding: .5rem 1rem; cursor: pointer; pointer-events: auto; z-index: 10; }
+#prev-btn, #next-btn{ position: absolute; top: 50%; transform: translateY(-50%); }
+#prev-btn{ left: 20px; } #next-btn{ right: 20px; }
+#close-btn{ position: absolute; top: 20px; right: 20px; z-index: 20; background: transparent; color: white; border: none; font-size: 2rem; cursor: pointer; }
+.spinner{ border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid white; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; position: absolute; }
+@keyframes spin{ 0%{transform:rotate(0)}100%{transform:rotate(360deg)} }
+
+/* contact */
+.contact-flex{ display: flex; flex-wrap: wrap; gap: 20px; width: 50vw; }
+.map-container, .contact-form{ flex: 1 1 48%; min-width: 300px; }
+.contact-form{ display: flex; flex-direction: column; gap: 10px; }
+.contact-form input, .contact-form textarea{
+  padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; font-family: inherit; resize: vertical; color: #111;
+}
+.contact-form textarea{ flex-grow: 1; }
+.contact-form button{ padding: 12px; background-color: black; color: white; font-size: 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-family: inherit; transition: background .3s; }
+.contact-form button:hover{ background-color: #333; }
+
+/* dots */
+.dots{ position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); display: flex; gap: 26px; z-index: 1001; }
+.dot{ width: 170px; height: 5px; border-radius: 5px; background: #0b210d; cursor: pointer; transition: background .3s; }
+.dot.active{ background: white; }
+
+/* footer */
+footer{ position: fixed; bottom: 0; width: 100%; color: white; padding: 10px 0; z-index: 1002; }
+.footer-container{ display: flex; justify-content: center; align-items: center; width: 100%; max-width: 800px; margin: 0 auto; gap: 177px; }
+.social-icon, .phone-number, .email { font-size: 1.5rem; color: white; }
+.social-icon{ text-decoration: none; color: white; }
+.social-icon:hover, .email:hover { color: #000; }
+.footer-text{ font-size: 1rem; text-align: center; margin-top: 10px; }
+
+/* ====== NEW: Account / Admin UI ====== */
+.account-section .account-wrap{width: min(855px, 90vw);display: flex;flex-direction: column;gap: 10px;align-items: center;}
+
+.balances{display: grid;grid-template-columns: repeat(2, 1fr);gap: 10px;}
+.balance-card{
+  background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);
+  padding: 20px; border-radius: 14px; display: flex; flex-direction: column; gap: 10px; align-items: center;
+}
+.balance-title{ font-size: 2rem; }
+.balance-value{ font-size: 3rem; }
+.balance-hint.note{ margin: 0; }
+
+.account-meta{ font-size: 1.2rem; color: #ddd; text-align: center; }
+
+.admin-panel{ margin-top: 20px; width: min(1000px, 95vw); background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 16px; }
+.admin-panel h3{ margin-bottom: 10px; font-size: 2rem; text-align: center; }
+.admin-table-wrap{ overflow: auto; }
+.admin-table{ width: 100%; border-collapse: collapse; }
+.admin-table th, .admin-table td{ border-bottom: 1px solid rgba(255,255,255,0.12); padding: 10px; font-size: 1.5rem; text-align: left; }
+.admin-table input{
+  width: 120px; padding: 6px 8px; border-radius: 6px; border: 1px solid #999; font-family: inherit; color: #111;
 }
 
-.grid-container {
-  display: grid;
-  gap: 0 10px;
-  width: 90%;
-  max-width: 800px;
-}
-/* Styles for the first grid container */
-.section:nth-of-type(2) .grid-container {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, auto);  
-}
+/* Hide user balances when viewing as admin */
+.is-admin .balances { display: none !important; }
 
-/* Styles for the second grid container */
-.section:nth-of-type(4) .grid-container {
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  grid-template-rows: repeat(10, auto); /* 10 rows */
-
-}
-
-
-.grid-item {
-  padding: 0 20px;
-}
-.grid-item:nth-child(odd) {
-  text-align: left;
-}
-
-.grid-item:nth-child(even) {
-  text-align: right;
-}
-.membership-section {
+/* ====== NEW: Auth modal (upravené) ====== */
+.modal{ position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 10000; }
+.modal.show{ display: flex; }
+.modal-backdrop{ position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.modal-content {
+  position: relative; 
+  z-index: 1; 
+  width: min(420px, 92vw);   /* max 420px, inak 92% viewport */
+  background: #102215; 
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px; 
+  padding: 22px 18px 18px;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: white;
+  flex-direction: column;
+  gap: 14px;
+}
+.modal-close{
+  position: absolute; right: 10px; top: 10px; background: transparent; color: #fff;
+  border: none; font-size: 1.5rem; cursor: pointer;
 }
 
-.membership-card {
-  padding: 0 40px;
-  max-width: 800px;
-  width: 100%;
-}
-
-.membership-card h2 {
-  font-size: 5rem;
-  margin-bottom: 10px;
+/* Nadpis namiesto horných tabov */
+.modal-title{
+  margin: 0 0 8px 0;
   text-align: center;
-  color: white;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-.membership-card .cost {
-  color: rgb(255, 255, 255);
-  margin-left: 15px;
+/* Skryj staré taby len vnútri modalu (bez globálnych zásahov) */
+.modal .tabs{ display: none !important; }
+.modal .tab{ display: none !important; }
+/* Redeem modal využíva tie isté triedy (.modal, .modal-content, .modal-title, .auth-form, .field, .form-error, .switch-text, .button)
+Stačí prípadne pridať toto: */
+#redeem-modal .modal-content { width: min(420px, 92vw); }
+#redeem-amount { width: 100%; }
+
+/* Panely */
+.tab-panel{ display: none; }
+.tab-panel.active{ display: block; }
+/* =============================
+   Account bottom: Pending + Referral vedľa seba
+   ============================= */
+   .bottom-account{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: min(855px, 90vw);  /* rovnaké ako account-wrap */
+    /* margin: 0 auto; */
+    align-items: stretch;
+  }
+  
+  /* jednotný vzhľad oboch boxov */
+  .bottom-account .card.compact,
+  .bottom-account .account-referral{
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* nadpisy */
+  .bottom-account h3,
+  .bottom-account .ref-title{
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* tabuľka pending */
+  .table-wrap{ overflow-x: auto; }
+  .pending-table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+  }
+  .pending-table th,
+  .pending-table td{
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    color: #ddd;
+  }
+  .pending-table th{ font-weight: 600; color: #fff; }
+  
+  /* referral form */
+  .ref-form{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+  }
+  .ref-submit{ white-space: nowrap; }
+  
+.card.compact {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+  width: min(900px, 90vw);
+  margin: 0 auto;
+}
+
+.card.compact h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.pending-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.pending-table th, .pending-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+}
+
+.pending-table th {
+  font-weight: 600;
+  color: #eee;
+  background: rgba(255,255,255,0.05);
+}
+
+.pending-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.04);
+}
+
+.pending-table td:last-child {
+  color: #ccc;
+  font-size: 1rem;
 }
 
 .note {
-  font-size: 1.2rem;
-  color: rgb(204, 204, 204);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.benefits {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-  margin-bottom: 15px;
-}
-
-.benefits li {
-  /* margin-bottom: 12px; */
-  padding-left: 30px;
-  position: relative;
-  font-size: 2rem;
-}
-
-.benefits li::before {
-  content: "✓";
-  position: absolute;
-  left: 0px;
-  color: rgb(255, 255, 255);
-}
-
-.fineprint {
-  font-size: 1.2rem;
-  color: rgb(153, 153, 153);
-  font-style: italic;
-  text-align: center;
-}
-.additional-info {
-  font-size: 1.3rem;
-  color: #ccc;
-  text-align: center;
-  margin-top: 15px;
-  line-height: 1.5;
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
-  padding: 0 50px;
-}
-
-.gallery img {
-  width: 100%;
-  width: 450px;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 9999; /* put it above EVERYTHING */
-  padding: 0 50px;
-}
-
-.overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.overlay img {
-  max-width: 90%;
-  max-height: 90%;
-  transition: opacity 0.4s ease;
-  opacity: 1;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-}
-#overlay-controls {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  left: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
-}
-
-.overlay-btn {
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  pointer-events: auto;
-  z-index: 10;
-}
-
-#prev-btn, #next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#prev-btn {
-  left: 20px;
-}
-
-#next-btn {
-  right: 20px;
-}
-#close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 20;
-  background: transparent;
-  color: white;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-.contact-flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  width: 50vw;
-  
-}
-
-.map-container,
-.contact-form {
-  flex: 1 1 48%;
-  min-width: 300px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  font-family: inherit;
-  resize: vertical;
-}
-.contact-form textarea {
-  flex-grow: 1;
-}
-
-.contact-form button {
-  padding: 12px;
-  background-color: black;
-  color: white;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: inherit;
-  transition: background 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #333;
-}
-.spinner {
-  border: 4px solid rgba(255,255,255,0.3);
-  border-top: 4px solid white;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  position: absolute;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0); }
-  100% { transform: rotate(360deg); }
-}
-.dots {
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 26px;
-  z-index: 1001;
-}
-
-.dot {
-  width: 170px;
-  height: 5px;
-  border-radius: 5px;
-  background: #0b210d;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.dot.active {
-  background: white;
-}
-
-/* Footer Styles */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  padding: 10px 0;
-  z-index: 1002;
-}
-.footer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  gap: 177px;
-}
-
-.social-icon, .phone-number, .email {
-  font-size: 1.5rem;
-  color: white;
-}
-
-.social-icon {
-  text-decoration: none;
-  color: white;
-}
-
-.social-icon:hover, .email:hover {
-  color: #000000;
-}
-.footer-text{
+  margin-top: 10px;
   font-size: 1rem;
   text-align: center;
+  color: #aaa;
+}
+/* ===== Account Referral (clean) ===== */
+.account-referral{
+  width: min(900px, 92vw);
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+}
+
+.ref-title{
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #fff;
+  letter-spacing: .5px;
+}
+
+.ref-note{
+  margin: 0 auto 12px;
+  max-width: 56ch;
+  color: #cfd8cf;
+}
+
+.ref-form{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.ref-field{ display: contents; } /* nech input zaberá 1fr v gride */
+
+#referral-code{
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  border: 1px solid #a4b5a6;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #111;          /* čierny text vo vstupe */
+  background: #fff;     /* kontrast na tmavom pozadí */
+  box-sizing: border-box;
+  /* width: 136px; */
+}
+#referral-code::placeholder{ color: #6d6d6d; }
+#referral-code:focus{
+  outline: none;
+  border-color: #53c96a;
+  box-shadow: 0 0 0 2px rgba(83,201,106,0.35);
+}
+
+.ref-result{
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* stavy hlášky – použi tieto classy z tvojho JS podľa výsledku */
+.ref-result.success{
+  color: #d4ffd9;
+  background: #1f4425;
+  border: 1px solid #2b7a39;
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+.ref-result.error{
+  color: #ffd0d0;
+  background: #5e1e1e;
+  border: 1px solid #a94848;
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+
+/* pomocná sekcia s pravidlami */
+.ref-help{
   margin-top: 10px;
+  font-size: .95rem;
+  color: #cfcfcf;
+}
+.ref-help summary{
+  cursor: pointer;
+  color: #bfe6c7;
+  margin-bottom: 6px;
+}
+.ref-help ul{
+  margin: 4px 0 0 18px;
+  padding: 0;
+  list-style: disc;
+}
+.ref-help li{ margin: 4px 0; }
+
+/* vizuálne skryté, ale dostupné pre čítačky */
+.visually-hidden{
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
 }
 
-@media (max-width: 768px) {
-  .logo {
-    height: 70px;
+/* Responsívne zúženie */
+@media (max-width: 768px){
+  .ref-title{ font-size: 1.6rem; }
+  .ref-form{
+    grid-template-columns: 1fr; /* email nad tlačidlom */
+    gap: 8px;
   }
-  .top-nav {
-    gap: 13px;
-  }
-  .nav-link {
-    font-size: 1.2rem;
-  }
-  h2{
-    font-size: 2rem;
-    text-align: center;
-    padding: 0 15px;
-  }
+  .ref-submit{ width: 100%; }
+}
 
-  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6) {
-    justify-content: flex-start;
-    padding-top: 170px;
-    ;
-  }
-  .button{
-    font-size: 2.5rem;
-    padding: 8px 16px;
-  }
-  .contact-flex{
-    width: 90vw;
-    padding: 0 15px;
-  }
-  .social-icon{
-    font-size: 1rem;
-  }
-  .email{
-    font-size: 1rem;
-  }
-  .footer-container {
-    padding: 0 25px;
-  }
-  .section{
-    font-size: 1.5rem;
-  }
-  .grid-item{
-    padding: 0 8px;
-  }
-  .membership-card {
-    padding: 0 15px;
-    max-width: 90%;
-  }
-  .membership-section{
-    padding-top: 0px;
-  }
-  .membership-card h2 {
-    font-size: 2rem;
-  }
-  .benefits li {
-    font-size: 1rem;
-  }
-  .fineprint {
-    font-size: 0.7rem;
-  }
-  .additional-info {
-    font-size: 0.8rem;
-    margin-top: 5px;
-  }
-  .gallery{
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 15px;
-    gap: 10px;
-  }
-  .gallery img{
-    width: 115px !important;
-  }
-  .overlay{
-    padding: 0 15px;
-  }
-  .overlay-btn{
-    font-size: 1.5rem;
-  }
-  .contact-form input{
-    font-size: 0.8rem;
-    padding: 8px;
-  }
-  .contact-form button{
-    font-size: 1.2rem;
-    padding: 8px 16px;
-  }
-  .map-iframe{
-    height: 270px;
-  }
-  .section:not(:first-child) .note {
-    font-size: 0.7rem;
-    padding: 0 15px;
-    margin-bottom: 10px;
-  }
-  .footer-container{
-    gap: 90px
-  }
-  .footer-text{
-    font-size: 0.7rem;
-  }
+/* Form */
+.auth-form {
+  display: flex; 
+  flex-direction: column; 
+  gap: 14px;
+  width: 100%;
 }
-@media (min-width: 768px) and (max-width: 2000px) {
-  .gallery{
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .contact-flex{
-    width: 70vw;
-  }
-  .gallery img{
-    width: 300px;
-  }
+.auth-form .field {
+  display: flex; 
+  flex-direction: column;
+  gap: 6px;
+  width: 100%; /* roztiahne label + input */
 }
-@media (max-height: 670px) {
-  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6) {
-    justify-content: flex-start;
-    padding-top: 140px;
-    ;
-  }
-  .gallery{
-    gap: 10px;
-  }
-  .gallery img{
-    width: 110px;
-  }
-  .section.kontak h2{
-    margin-bottom: 10px;
-  }
-  .map-iframe{
-    height: 150px;
-  }
+.field span{
+  color: #fff;
 }
-@media (max-height: 1000px) and (min-width: 768px){
-  .logo{
-    height: 100px;
-  }
-  h2{
-    font-size: 3.3rem;
-    margin-bottom: 15px;
-  }
-  .membership-card h2{
-    font-size: 3rem;
-    margin-bottom: 0px;
-  }
+.auth-form input {
+  width: 100%;  /* ⬅️ tu dôležité */
+  padding: 12px 14px; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  font-size: 16px; 
+  color:#111; 
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.auth-form input:focus {
+  border-color: #53c96a;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(83,201,106,0.4);
+}
+.auth-form .button {
+  width: 100%;  /* aj tlačidlo na celú šírku */
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1c5f20;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .3s;
+}
+.auth-form .button:hover { background: #000000; }
 
-  .section{
-    justify-content: flex-start;
-    padding-top: 200px;
-    font-size: 2rem;
-  }
-  .section:nth-child(1) h2{
-    font-size: 5rem;
-  }
-  .gallery img{
-    width: 200px;
-  }
-  .benefits li{
-    font-size: 1.5rem;
-  }
-  .section:not(:first-child) .note {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-  }
-  .fineprint{
-    font-size: 1.1rem;
-  }
-  .additional-info{
-    font-size: 1.2rem;
-  }
-}
-@media (min-height: 1001px) and (max-height: 1200px) {
-  /* Your custom styles for laptops/PCs with height between 1000px and 1300px */
-.section:nth-child(1) h2{
-    font-size: 6rem;
-  }
-  .logo {
-    height: 150px;
-  }
-  h2 {
-    font-size: 4rem;
-  }
-  .section {
-    padding-top: 250px;
-    font-size: 2.3rem;
-  }
-  .membership-card h2 {
-    font-size: 4rem;
-  }
-  .gallery img {
-    width: 230px;
-  }
-  .benefits li {
-    font-size: 1.7rem;
-  }
-  .section:not(:first-child) .note {
-    font-size: 1.2rem;
-  }
-  .fineprint{
-    font-size: 1.1rem;
-  }
-  /* Add any more adjustments you want for that height range here */
-}
-@media (max-height: 850px) and (min-width: 900px){
-  .nav-link{
-    font-size: 1.5rem;
-  }
-  .section:nth-child(1) h2{
-    font-size: 4.3rem;
-  }
-  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6) {
-    justify-content: flex-start;
-    padding-top: 180px;
-    font-size: 1.7rem;
-    h2{
-      font-size: 2.5rem;
+/* Spodný prepínač LOGIN <-> REG */
+.switch-text{ text-align: center; font-size: 1rem; color: #ddd; margin-top: 8px; }
+.linklike{ background: none; border: 0; padding: 0; color: #53c96a; font-weight: 600; cursor: pointer;}
+.linklike:hover{ text-decoration: underline; }
+
+/* Info/Errors pri registrácii */
+.form-hint.tiny{ font-size: .9rem; color: #bbb; text-align: center; margin: 2px 0 0; }
+.form-error{ color: #ffd0d0; background: #5e1e1e; border: 1px solid #a94848; padding: 8px 10px; border-radius: 8px; font-size: 0.95rem; }
+
+/* ====== Responsive tweaks (keep your originals and add few) ====== */
+/* ===== Mobile: aby bola sekcia Účet zvnútra zvislo scrollovateľná
+   a nič ju nezakrývalo (footer, notch) ===== */
+   @supports (padding: max(0px)) {
+    :root{
+      --safe-top: env(safe-area-inset-top);
+      --safe-bottom: env(safe-area-inset-bottom);
     }
   }
-  .gallery img{
-    width: 150px;
+  
+  @media (max-width: 768px) {
+    /* vnútorný scroll len pre sekciu Účet */
+    .section.account-section{
+      align-items: stretch;                 /* roztiahne obsah na šírku */
+      overflow-y: auto;                     /* kľúčové – zvislý scroll vnútri panelu */
+      -webkit-overflow-scrolling: touch;    /* plynulý iOS scroll */
+      overscroll-behavior: contain;         /* neťahá celý layout pri dojazde */
+      padding-top: 150px;                   /* miesto pod headerom */
+      padding-bottom: calc(16px + var(--safe-bottom, 0px)); /* miesto nad spodným okrajom/gestami */
+    }
+  
+    .account-section .account-wrap{
+      width: min(900px, 94vw);
+      margin: 0 auto;
+      padding: 0 12px 20px;                 /* vnútorné okraje */
+    }
+  
+    /* referral box – istota, že je viditeľný a s odstupom */
+    .account-referral{
+      display: block !important;
+    }
+  
+    /* mierne väčšie rozostupy medzi kartami v balances */
+    .balances{ gap: 14px; }
+    .bottom-account{
+      grid-template-columns: 1fr;  /* pod sebou */
+      gap: 16px;
+      width: min(700px, 94vw);
+      padding: 0 10px;
+    }
+    .pending-table th, .pending-table td{
+      font-size: 0.9rem;
+      padding: 4px 6px;
+    }
+    .ref-form{ grid-template-columns: 1fr; }
+    .ref-submit{ width: 100%; }
+  
+    /* footer na mobile nestojí nad obsahom */
+    footer{
+      position: static;
+      padding-bottom: max(12px, var(--safe-bottom, 0px));
+    }
   }
-  .social-icon ,.email{
-    font-size: 1.2rem;
+  
+  /* veľmi nízke displeje: povol scroll vnútri všetkých sekcií
+     (ak máš dlhé tabuľky v admin časti, pomôže to tiež) */
+  @media (max-height: 700px) and (max-width: 768px){
+    .section{
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
   }
-  .footer-text{
-    font-size: 0.8rem;
-  }
-  .section:not(:first-child) .note {
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-  }
-  .fineprint{
-    font-size: 0.9rem;
-  }
-  .additional-info{
-    font-size: 1rem;
-  }
-  .button{
-    font-size: 3rem;
-    padding:10px 16px;
-  }
+  @media (max-width: 768px) {
+  .logo { height: 70px; }
+  .top-nav { gap: 13px; }
+  .nav-link { font-size: 1.2rem; }
+  h2{ font-size: 2rem; text-align: center; padding: 0 15px; }
 
+  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6), .account-section {
+    justify-content: flex-start; padding-top: 170px;
+  }
+  .button{ font-size: 2.0rem; padding: 8px 16px; }
+  .contact-flex{ width: 90vw; padding: 0 15px; }
+  .social-icon, .email{ font-size: 1rem; }
+  .footer-container { padding: 0 25px; }
+  .section{ font-size: 1.5rem; }
+  .grid-item{ padding: 0 8px; }
+  .membership-card{ padding: 0 15px; max-width: 90%; }
+  .membership-section{ padding-top: 0px; }
+  .membership-card h2 { font-size: 2rem; }
+  .benefits li { font-size: 1rem; }
+  .fineprint { font-size: 0.7rem; }
+  .additional-info { font-size: 0.8rem; margin-top: 5px; }
+  .gallery{ grid-template-columns: repeat(3, 1fr); padding: 0 15px; gap: 10px; }
+  .gallery img{ width: 115px !important; }
+  .overlay{ padding: 0 15px; }
+  .overlay-btn{ font-size: 1.5rem; }
+  .contact-form input{ font-size: 0.8rem; padding: 8px; }
+  .contact-form button{ font-size: 1.2rem; padding: 8px 16px; }
+  .map-iframe{ height: 270px; }
+  .section:not(:first-child) .note { font-size: 0.7rem; padding: 0 15px; margin-bottom: 10px; }
+
+  .footer-container{ gap: 90px }
+  .footer-text{ font-size: 0.7rem; }
+  .auth-quick{ right: 10px; }
+  .balance-title{ font-size: 1.3rem; }
+  .balance-value{ font-size: 2rem; }
+  .balance-card{padding: 20px 10px;}
+  #btn-redeem-main, #btn-redeem-bonus{ font-size: 1.2rem; padding: 10px 16px; }
+}
+
+@media (max-height: 670px) {
+  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6), .account-section {
+    justify-content: flex-start; padding-top: 140px;
+  }
+  .gallery{ gap: 10px; }
+  .gallery img{ width: 110px; }
+  .section.kontak h2{ margin-bottom: 10px; }
+  .map-iframe{ height: 150px; }
+}
+
+@media (max-height: 1000px) and (min-width: 768px){
+  .logo{ height: 100px; }
+  h2{ font-size: 3.3rem; margin-bottom: 15px; }
+  .membership-card h2{ font-size: 3rem; margin-bottom: 0px; }
+  .section{ justify-content: flex-start; padding-top: 200px; font-size: 2rem; }
+  .section:nth-child(1) h2{ font-size: 5rem; }
+  .gallery img{ width: 200px; }
+  .benefits li{ font-size: 1.5rem; }
+  .section:not(:first-child) .note { font-size: 1.1rem; margin-bottom: 10px; }
+  .fineprint{ font-size: 1.1rem; }
+  .additional-info{ font-size: 1.2rem; }
+}
+
+@media (min-height: 1001px) and (max-height: 1200px) {
+  .section:nth-child(1) h2{ font-size: 6rem; }
+  .logo { height: 150px; }
+  h2 { font-size: 4rem; }
+  .section { padding-top: 250px; font-size: 2.3rem; }
+  .membership-card h2 { font-size: 4rem; }
+  .gallery img { width: 230px; }
+  .benefits li { font-size: 1.7rem; }
+  .section:not(:first-child) .note { font-size: 1.2rem; }
+  .fineprint{ font-size: 1.1rem; }
+}
+
+@media (max-height: 850px) and (min-width: 900px){
+  .nav-link{ font-size: 1.5rem; }
+  .section:nth-child(1) h2{ font-size: 4.3rem; }
+  .section:nth-child(2), .section:nth-child(3), .section:nth-child(4), .section:nth-child(5), .section:nth-child(6), .account-section {
+    justify-content: flex-start; padding-top: 180px; font-size: 1.7rem;
+  }
+  .gallery img{ width: 150px; }
+  .social-icon ,.email{ font-size: 1.2rem; }
+  .footer-text{ font-size: 0.8rem; }
+  .section:not(:first-child) .note { font-size: 0.9rem; margin-bottom: 5px; }
+  .fineprint{ font-size: 0.9rem; }
+  .additional-info{ font-size: 1rem; }
+  .button{ font-size: 1.6rem; padding:10px 16px; }
+}
+
+@media (min-width: 768px) and (max-width: 2000px) {
+  .gallery{ grid-template-columns: repeat(3, 1fr); }
+  .contact-flex{ width: 70vw; }
+  .gallery img{ width: 300px; }
 }

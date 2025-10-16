@@ -15,154 +15,269 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+
+  <!-- EmailJS (kept as-is) -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function(){
-        emailjs.init({
-          publicKey: "49NbhxJBGNEH5bPP7",
-        });
+        emailjs.init({ publicKey: "49NbhxJBGNEH5bPP7" });
     })();
   </script>
 </head>
 <body>
   <div class="header">
-    <img src="logo.png" alt="Logo" class="logo" />
+    <div class="top-bar">
+      <img src="logo.png" alt="Logo" class="logo" />
+      <div class="auth-quick">
+        <!-- <span id="auth-status" class="auth-status">Neprihlásený</span> -->
+        <button id="btn-open-auth" class="button small">Prihlásiť</button>
+        <button id="btn-logout" class="button small outline" style="display:none;">Odhlásiť</button>
+      </div>
+    </div>
+  
     <nav class="top-nav" id="nav"></nav>
   </div>
-
+  
   <div id="scroll-container">
+    <!-- 1: Domov -->
     <section class="section">
       <div class="intro">
         <h2>Nech sa deje čokoľvek, pokračuj.</h2>
         <p class="note">Profesionálne nahrávacie štúdio v Bratislave - rezervuj si svoj termín ešte dnes</p>
-        <a href="#kontakt" class="button">
-          Rezervovať
-        </a>
+        <a href="#kontakt" class="button">Rezervovať</a>
       </div>
     </section>
+
+    <!-- 2: Cenník -->
     <section class="section">
       <h2>Cenník</h2>
-        <div class="grid-container">
-          <div class="grid-item">NAHRÁVANIE</div>
-          <div class="grid-item">25€/HODINA</div>
-          <div class="grid-item">MIXING</div>
-          <div class="grid-item">100€</div>
-          <div class="grid-item">MASTERING</div>
-          <div class="grid-item">100€</div>
-          <div class="grid-item">HUDOBNÁ PRODUKCIA</div>
-          <div class="grid-item">CENA DOHODOU</div>
-          <div class="grid-item">VÝROBA VIDEOKLIPU</div>
-          <div class="grid-item">CENA DOHODOU</div>
-          <div class="grid-item">VÝROBA PODCASTU</div>
-          <div class="grid-item">CENA DOHODOU</div>
-        </div>
-      </section>
-      <section class="section membership-section ">
-        <div class="membership-card">
-            <h2 class="price">MEMBERSHIP 5 DNÍ <span class="cost">499€</span></h2>
-            <p class="note">(8 hodín/deň = 12,47€ na hodinu)</p>
-        
-            <ul class="benefits">
-              <li>5 ľubovoľných dní v mesiaci</li>
-              <li>Kompletne vybavené profesionálne štúdio</li>
-              <li>Energie, internet v cene</li>
-              <li>2 parkovacie miesta priamo pred štúdiom</li>
-              <li>Kuchynka s mikrovlnkou</li>
-              <li>Dámske a pánske WC</li>
-              <li>Chladnička s pitným režimom</li>
-              <li>Klimatizácia</li>
-              <li>Dizajnové gauče</li>
-              <li>Literatúra – PROSTE ALL INCLUSIVE</li>
-            </ul>
-        
-            <p class="fineprint">*Limit 8 hodín denne sa dá prekročiť po dohode s majiteľom štúdia</p>
-            <p class="fineprint">*Nočný prenájom povolený</p>
-        
-            <!-- New section below the list -->
-            <p class="additional-info">
-              K členstvu si môžeš za príplatok dohodnúť aj prítomnosť zvukového inžiniera počas tvojej session. Ponúkame tiež individuálne profesionálne workshopy, ktoré ti pomôžu rásť vo svojej hudobnej kariére – ako interpret, producent alebo zvukový majster. 
-            </p>
-          </div>
-      </section>
+      <div class="grid-container">
+        <div class="grid-item">NAHRÁVANIE</div><div class="grid-item">25€/HODINA</div>
+        <div class="grid-item">MIXING</div><div class="grid-item">100€</div>
+        <div class="grid-item">MASTERING</div><div class="grid-item">100€</div>
+        <div class="grid-item">HUDOBNÁ PRODUKCIA</div><div class="grid-item">CENA DOHODOU</div>
+        <div class="grid-item">VÝROBA VIDEOKLIPU</div><div class="grid-item">CENA DOHODOU</div>
+        <div class="grid-item">VÝROBA PODCASTU</div><div class="grid-item">CENA DOHODOU</div>
+      </div>
+    </section>
+
+    <!-- 3: Členstvo -->
+    <section class="section membership-section">
+      <div class="membership-card">
+        <h2 class="price">MEMBERSHIP 5 DNÍ <span class="cost">499€</span></h2>
+        <p class="note">(8 hodín/deň = 12,47€ na hodinu)</p>
+        <ul class="benefits">
+          <li>5 ľubovoľných dní v mesiaci</li>
+          <li>Kompletne vybavené profesionálne štúdio</li>
+          <li>Energie, internet v cene</li>
+          <li>2 parkovacie miesta priamo pred štúdiom</li>
+          <li>Kuchynka s mikrovlnkou</li>
+          <li>Dámske a pánske WC</li>
+          <li>Chladnička s pitným režimom</li>
+          <li>Klimatizácia</li>
+          <li>Dizajnové gauče</li>
+          <li>Literatúra – PROSTE ALL INCLUSIVE</li>
+        </ul>
+        <p class="fineprint">*Limit 8 hodín denne sa dá prekročiť po dohode s majiteľom štúdia</p>
+        <p class="fineprint">*Nočný prenájom povolený</p>
+        <p class="additional-info">
+          K členstvu si môžeš za príplatok dohodnúť aj prítomnosť zvukového inžiniera počas tvojej session. Ponúkame tiež individuálne profesionálne workshopy.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4: Vybavenie -->
     <section class="section">
       <h2>Vybavenie</h2>
-        <div class="grid-container">
-          <div class="grid-item">MIXPULT</div>
-          <div class="grid-item">YAMAHA M3000A</div>
-          <div class="grid-item">ZVUKOVKA</div>
-          <div class="grid-item">UAD APOLLO SOLO</div>
-          <div class="grid-item">ZVUKOVKA</div>
-          <div class="grid-item">VOLT 1</div>
-          <div class="grid-item">MONITORY</div>
-          <div class="grid-item">DYNAUDIO LYD-48</div>
-          <div class="grid-item">MONITORY</div>
-          <div class="grid-item">ADAM A77H</div>
-          <div class="grid-item">SUBWOOFER</div>
-          <div class="grid-item">PRESONUS ERIS 8BT</div>
-          <div class="grid-item">MIKRÓFON</div>
-          <div class="grid-item">NEUMANN TLM03</div>
-          <div class="grid-item">MIKRÓFON</div>
-          <div class="grid-item">RODE NT</div>
-          <div class="grid-item">MIKRÓFON</div>
-          <div class="grid-item">SLATE DIGITAL ML-1</div>
-          <div class="grid-item">MIKRÓFON</div>
-          <div class="grid-item">SHURE SM7B</div>
-          <div class="grid-item">TV</div>
-          <div class="grid-item">SAMSUNG</div>
-          <div class="grid-item">CHLADNIČKA</div>
-          <div class="grid-item">KLARSTEIN</div>
-        </div>
-      </section>
-      <section class="section gallery-section">
-        <h2>Galéria</h2>
-        <div class="gallery">
-          <img src="foto/image00006.jpg" alt="Gallery image 6">
-          <img src="foto/image00001.jpg" alt="Gallery image 1">
-          <img src="foto/image00002.jpg" alt="Gallery image 2">
-          <img src="foto/image00003.jpg" alt="Gallery image 3">
-          <img src="foto/image00004.jpg" alt="Gallery image 4">
-          <img src="foto/image00005.jpg" alt="Gallery image 5">
-          <img src="foto/image00007.jpg" alt="Gallery image 7">
-          <img src="foto/image00008.jpg" alt="Gallery image 8">
-          <img src="foto/image00009.jpg" alt="Gallery image 9">
-        </div>
-        <div id="overlay" class="overlay">
-          <div class="spinner" id="spinner"></div>
-          <button id="close-btn" class="overlay-btn">✕</button>
-          <button id="prev-btn" class="overlay-btn">❮</button>
-          <button id="next-btn" class="overlay-btn">❯</button>
-          <img id="overlay-img" src="" alt="Fullscreen preview">
-        </div>
-      
-      </section>
-      <section class="section kontak" id="kontakt">
-        <h2>Kontakt</h2>
-        <div class="contact-flex">
-          <form class="contact-form" id="contact-form">
+      <div class="grid-container">
+        <div class="grid-item">MIXPULT</div><div class="grid-item">YAMAHA M3000A</div>
+        <div class="grid-item">ZVUKOVKA</div><div class="grid-item">UAD APOLLO SOLO</div>
+        <div class="grid-item">ZVUKOVKA</div><div class="grid-item">VOLT 1</div>
+        <div class="grid-item">MONITORY</div><div class="grid-item">DYNAUDIO LYD-48</div>
+        <div class="grid-item">MONITORY</div><div class="grid-item">ADAM A77H</div>
+        <div class="grid-item">SUBWOOFER</div><div class="grid-item">PRESONUS ERIS 8BT</div>
+        <div class="grid-item">MIKRÓFON</div><div class="grid-item">NEUMANN TLM03</div>
+        <div class="grid-item">MIKRÓFON</div><div class="grid-item">RODE NT</div>
+        <div class="grid-item">MIKRÓFON</div><div class="grid-item">SLATE DIGITAL ML-1</div>
+        <div class="grid-item">MIKRÓFON</div><div class="grid-item">SHURE SM7B</div>
+        <div class="grid-item">TV</div><div class="grid-item">SAMSUNG</div>
+        <div class="grid-item">CHLADNIČKA</div><div class="grid-item">KLARSTEIN</div>
+      </div>
+    </section>
+
+    <!-- 5: Galéria -->
+    <section class="section gallery-section">
+      <h2>Galéria</h2>
+      <div class="gallery">
+        <img src="foto/image00006.jpg" alt="Gallery image 6">
+        <img src="foto/image00001.jpg" alt="Gallery image 1">
+        <img src="foto/image00002.jpg" alt="Gallery image 2">
+        <img src="foto/image00003.jpg" alt="Gallery image 3">
+        <img src="foto/image00004.jpg" alt="Gallery image 4">
+        <img src="foto/image00005.jpg" alt="Gallery image 5">
+        <img src="foto/image00007.jpg" alt="Gallery image 7">
+        <img src="foto/image00008.jpg" alt="Gallery image 8">
+        <img src="foto/image00009.jpg" alt="Gallery image 9">
+      </div>
+      <div id="overlay" class="overlay">
+        <div class="spinner" id="spinner"></div>
+        <button id="close-btn" class="overlay-btn">✕</button>
+        <button id="prev-btn" class="overlay-btn">❮</button>
+        <button id="next-btn" class="overlay-btn">❯</button>
+        <img id="overlay-img" src="" alt="Fullscreen preview">
+      </div>
+    </section>
+
+    <!-- 6: Kontakt -->
+    <section class="section kontak" id="kontakt">
+      <h2>Kontakt</h2>
+      <div class="contact-flex">
+        <form class="contact-form" id="contact-form">
           <input type="text" id="name" name="name" placeholder="Meno" required>
           <input type="email" id="email" name="email" placeholder="Email" required>
           <input type="text" id="phone" name="phone" placeholder="Tel. Číslo" required>
           <textarea id="text" name="message" placeholder="Správa" required></textarea>
           <button type="submit">Odoslať</button>
-  </form>
-          <div class="map-container">
-            <iframe 
-              class="map-iframe"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0998317618796!2d17.166596177628893!3d48.18542797124887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8f4cf8b10157%3A0x37bc8a9c5c182d9!2zUG9rcmHEjXVqIHMuci5vLiAtIG5haHLDoXZhY2llIGEgcHJvZHVrxI1uw6kgxaF0w7pkaW8!5e0!3m2!1ssk!2ssk!4v1745492688696!5m2!1ssk!2ssk" 
-              width="100%" 
-              height="400" 
-              style="border:0; border-radius: 10px;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        </form>
+        <div class="map-container">
+          <iframe 
+            class="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0998317618796!2d17.166596177628893!3d48.18542797124887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8f4cf8b10157%3A0x37bc8a9c5c182d9!2zUG9rcmHEjXVqIHMuci5vLiAtIG5haHLDoXZhY2llIGEgcHJvZHVrxI1uw6kgxaF0w7pkaW8!5e0!3m2!1ssk!2ssk!4v1745492688696!5m2!1ssk!2ssk" 
+            width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen=""
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7: Účet (NEW) -->
+    <section class="section account-section" id="ucet">
+      <h2>Účet</h2>
+
+      <div id="account-guest" class="card centered" style="display:none;">
+        <p class="note">Pre zobrazenie zostatkov sa prihlás.</p>
+        <button class="button" id="btn-open-auth-guest">Prihlásiť / Registrovať</button>
+      </div>
+
+      <div id="account-user" class="account-wrap" style="display:none;">
+        <div class="balances">
+          <div class="balance-card">
+            <div class="balance-title">Hlavný zostatok</div>
+            <div class="balance-value"><span id="main-balance">0</span> €</div>
+            <button id="btn-redeem-main" class="button disabled" disabled>Uplatniť</button>
+            <div class="balance-hint note">Dostupné po dosiahnutí 200 €</div>
+            <div class="balance-hint note"><strong>Hlavný zostatok</strong> predstavuje 10&nbsp;% z peňazí, ktoré minieš v štúdiu.</div>
+          </div>
+
+          <div class="balance-card">
+            <div class="balance-title">Bonus za odporúčanie</div>
+            <div class="balance-value"><span id="bonus-balance">0</span> €</div>
+            <button id="btn-redeem-bonus" class="button">Uplatniť</button>
+            <div class="balance-hint note">Možno uplatniť kedykoľvek</div>
+            <div class="balance-hint note">Dostaneš <strong>10 % zo sumy</strong>, ktorú minie každý človek, ktorého odporučíš do štúdia.  
+              Bonus je neobmedzený, keď sa tento človek vráti nahrávať, získavaš ďalších 10 %.
+        </div>
           </div>
         </div>
-      </section>
+        <div class="bottom-account">
+          <div id="user-pending-box" class="card compact">
+            <h3>Prebiehajúce uplatnenia</h3>
+            <div class="table-wrap">
+              <table class="pending-table" id="user-pending-list">
+                <thead>
+                  <tr>
+                    <th>Typ</th>
+                    <th>Suma (€)</th>
+                    <th>Dátum</th>
+                    <th>Stav</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <!-- <p class="note">Majiteľ sa s tebou spojí hneď, ako žiadosť spracuje.</p> -->
+          </div>
+          
+          
+          
+          <div class="account-referral" role="region" aria-labelledby="referral-title">
+            <h4 id="referral-title" class="ref-title">Odporúčanie (referral)</h4>
+          
+            <p class="note tiny ref-note">
+              Zadaj email človeka, ktorý ťa odporučil. Odporúčajúci získa
+              <strong>10&nbsp;% z každého tvojho nahrávania</strong>. Referral ide pridať iba raz.
+            </p>
+          
+            <form id="referral-form" class="ref-form" autocomplete="on" novalidate>
+              <label class="ref-field">
+                <span class="visually-hidden">Email odporúčajúceho</span>
+                <input type="email"
+                       id="referral-code"
+                       name="referral_email"
+                       placeholder="email odporúčajúceho (napr. jana@firma.sk)"
+                       inputmode="email"
+                       autocomplete="email"
+                       required>
+              </label>
+          
+              <button class="button small ref-submit" type="submit" aria-label="Potvrdiť referral">
+                Potvrdiť
+              </button>
+            </form>
+          
+            <!-- výsledok/hláška z tvojho JS -->
+            <p class="note tiny ref-result" id="referral-result" aria-live="polite" hidden></p>
+          
+            <!-- dobrovoľný tip/link na pravidlá -->
+            <!-- <details class="ref-help">
+              <summary>Podmienky a tipy</summary>
+              <ul>
+                <li>Referral sa dá uložiť len <strong>raz</strong> a nie je ho možné neskôr zmeniť.</li>
+                <li>Bonus je <strong>opakovane</strong> vyplácaný pri každom ďalšom nahrávaní odporúčaného.</li>
+                <li>Ak si si nie istý emailom, over si ho u odporúčajúceho.</li>
+              </ul>
+            </details> -->
+          </div>
+        </div>
+        
+        <div class="account-meta">
+          <div><strong>Používateľ:</strong> <span id="user-email-label">—</span></div>
+        </div>
+      <!-- Admin panel (visible only admin) -->
+      <div id="admin-panel" class="admin-panel" style="display:none;">
+        <h3>Admin: Používatelia a zostatky</h3>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="admin-users-table">
+            <thead>
+              <tr><th>Email</th><th>Hlavný (€)</th><th>Bonus (€)</th><th>Akcia</th></tr>
+            </thead>
+            <tbody><!-- filled by JS --></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Admin: Žiadosti o uplatnenie -->
+      <div class="admin-panel" id="admin-withdrawals" style="display:none; margin-top:16px;">
+        <h3>Žiadosti o uplatnenie</h3>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="admin-withdrawals-table">
+            <thead>
+              <tr>
+                <th>Používateľ</th>
+                <th>Typ</th>
+                <th>Suma</th>
+                <th>Vytvorené</th>
+                <th>Akcie</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   </div>
-  <div class="dots" id="dots"></div>
+
+  <!-- <div class="dots" id="dots"></div> -->
+
   <footer>
     <div class="footer-container bebas-neue-regular">
       <a href="https://www.instagram.com/pokracuj.sk?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon" target="_blank">
@@ -174,7 +289,75 @@
     </div>
     <p class="footer-text">© 2025 POKRACUJ.SK. Všetky práva vyhradené.</p>
   </footer>
+
+  <!-- Auth Modal -->
+  <div class="modal" id="auth-modal" aria-hidden="true" role="dialog" aria-labelledby="auth-title">
+    <div class="modal-backdrop" id="auth-close"></div>
   
+    <div class="modal-content">
+      <button class="modal-close" id="auth-x" aria-label="Zavrieť">✕</button>
+  
+      <h2 class="modal-title" id="auth-title">Prihlásenie</h2>
+  
+      <!-- Login panel -->
+      <div class="tab-panel active" id="panel-login" role="tabpanel" aria-labelledby="auth-title">
+        <form id="login-form" class="auth-form" autocomplete="on" novalidate>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="login-email" name="email" placeholder="napr. jana@firma.sk" autocomplete="email" required>
+          </label>
+  
+          <label class="field">
+            <span>Heslo</span>
+            <input type="password" id="login-password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+          </label>
+  
+          <button class="button" type="submit">Prihlásiť</button>
+        </form>
+  
+        <p class="switch-text">
+          Nemáš ešte účet?
+          <button class="linklike" data-switch="register" type="button">Zaregistruj sa</button>
+        </p>
+      </div>
+  
+      <!-- Register panel -->
+      <div class="tab-panel" id="panel-register" role="tabpanel" aria-labelledby="auth-title" hidden>
+        <form id="register-form" class="auth-form" autocomplete="on" novalidate>
+          <label class="field">
+            <span>Celé meno</span>
+            <input type="text" id="reg-name" name="name" placeholder="napr. Jana Nováková" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="reg-email" name="email" placeholder="napr. jana@firma.sk" autocomplete="email" required>
+          </label>
+  
+          <label class="field">
+            <span>Heslo</span>
+            <input type="password" id="reg-password" name="password" placeholder="min. 8 znakov" autocomplete="new-password" minlength="8" required>
+          </label>
+  
+          <label class="field">
+            <span>Potvrď heslo</span>
+            <input type="password" id="reg-password2" name="password_confirm" placeholder="zopakuj heslo" autocomplete="new-password" minlength="8" required>
+          </label>
+
+          <p class="form-error" id="reg-error" aria-live="polite" hidden></p>
+  
+          <button class="button" type="submit">Vytvoriť účet</button>
+        </form>
+  
+        <p class="switch-text">
+          Máš už účet?
+          <button class="linklike" data-switch="login" type="button">Prihlás sa</button>
+        </p>
+      </div>
+      
+    </div>
+  </div>
+  
+
   <script src="script.js"></script>
 </body>
 </html>
